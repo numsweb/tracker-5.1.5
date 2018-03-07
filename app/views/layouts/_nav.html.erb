@@ -1,0 +1,15 @@
+<div class="navbar navbar-default navbar-static-top">
+  <%= nav_bar :fixed => :top  do %>
+
+      <%= menu_group do %>
+
+          <% if current_user.blank? %>
+              <%= menu_item "User Login", login_path %>
+          <% else %>
+              <%= menu_item "Jobs", jobs_path %>
+              <%= menu_item "Statuses", statuses_path %>
+              <%= menu_item "Logout", sign_out_path %>
+          <% end %>
+      <% end %>
+  <% end %>
+</div>

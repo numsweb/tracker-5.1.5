@@ -1,0 +1,124 @@
+<%= form_with(model: job, local: true) do |f| %>
+  <% if job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <table>
+      <tr>
+        <td>
+          <div class="field">
+            <%= f.label :company %>  <span class="required"> *  </span> <br/>
+            <%= f.text_field :company, class: "job_edit_field" %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= f.label :recruiter %><br/>
+            <%= f.text_field :recruiter, class: "job_edit_field" %>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="field">
+            <%= f.label :recruiter_email %><br/>
+            <%= f.text_field :recruiter_email, class: "job_edit_field" %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= f.label :recruiter_phone %><br/>
+            <%= f.text_field :recruiter_phone, class: "job_edit_field" %>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="field">
+            <%= f.label :recruiter_cell %><br/>
+            <%= f.text_field :recruiter_cell, class: "job_edit_field" %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= f.label :last_contact %><br/>
+            <input type="text" name="job[last_contact]", class="job_edit_field" value=<%= @job.last_contact.blank? ? Time.now.to_date.strftime("%m-%d-%Y") :  @job.last_contact.to_date.strftime("%m-%d-%Y")%> data-behaviour='datepicker' >
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <div class="field">
+            <%= f.label :company_website %><br/>
+            <%= f.text_field :company_website, class: "job_edit_field" %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= f.label :position %> <span class="required"> *  </span> <br/>
+            <%= f.text_field :position, class: "job_edit_field" %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="field">
+            <%= f.label :company_contact %><br/>
+            <%= f.text_field :company_contact, class: "job_edit_field" %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= f.label :company_phone %><br/>
+            <%= f.text_field :company_phone, class: "job_edit_field" %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="field">
+            <%= f.label :company_address %><br/>
+            <%= f.text_area :company_address, class: "job_edit_field" %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= f.label :status_id %>  <span class="required"> *  </span> <br/>
+            <%= f.select(:status_id, Status.all.collect{|s| [s.name, s.id]})%>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <div class="field">
+      <%= f.label :comments %><br/>
+      <%= f.text_area :comments, class: "comments job_edit_field"%>
+    </div>
+
+    <div class="actions">
+      <%= f.submit class: "btn btn-primary btn-small"%>
+    </div>
+
+    <script type="text/javascript">
+        //set up the date picker here, since it wouldn't load reliable in coffee script files
+        $(document).ready(function(){
+            $('[data-behaviour~=datepicker]').datepicker({
+                format: 'mm-dd-yyyy',
+                autoclose: true
+            });
+            $(".comments").jqte();
+        })
+    </script>
+
+<% end %>

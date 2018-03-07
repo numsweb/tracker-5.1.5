@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JobTracker</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application'%>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= render :partial => 'layouts/nav' %>
+
+
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <%= bootstrap_flash %>
+    <%= render :partial => "layouts/search_form" %>
+    <%= yield %>
+  </div>
+  <div style="clear: both;"></div>
+  <footer>
+    <p>&copy; John Kropka 2014-2018</p>
+    <div class="fright"> This website is running <b>Rails: <%= Rails::VERSION::STRING %></b> </div>
+  </footer>
+</div>
+</body>
+</html>

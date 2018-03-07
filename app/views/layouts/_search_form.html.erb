@@ -1,0 +1,13 @@
+<div class="col-md-12">
+  <%= form_for("search", :url => "/jobs", :method => :get) do |f| %>
+      <div class="form-group col-md-6">
+        <%= f.text_field "item", class:'form-control input-normal' %>
+      </div>
+      <div class="form-group col-md-3">
+      <span id="search_button">
+        <%= f.submit  "Search Jobs", class: "btn btn-primary btn-small", style: "margin-top: 9px;"%>
+      </span>
+      </div>
+  <% end %>
+</div>
+<div style="clear: both;"></div>

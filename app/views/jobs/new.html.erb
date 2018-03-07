@@ -1,0 +1,8 @@
+<div class="col-md-12">
+  <h1>New job</h1>
+
+  <%= render 'form', job: @job  %>
+  <div class="actions">
+    <%= button_to 'Back', jobs_path, class: "btn btn-primary btn-small"  %>
+  </div>
+</div>

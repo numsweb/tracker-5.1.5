@@ -1,0 +1,44 @@
+body {
+    background-color: #fff;
+    color: #333;
+    margin: 33px;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 18px !important;
+    line-height: 20px;
+}
+
+a {font-size: 18px !important;}
+
+body {margin-left: 100px !important;}
+footer {border-top:1px solid #cacaca;padding-top:10px;margin-top:10px;}
+
+.jobs-table {width:900px;}
+.jobs-table td {padding:10px;}
+.deactivated { background-color: #F5A9A9;}
+.active {background-color: #58FA82}
+.last-contact {width:150px;text-align: center;}
+
+
+#search_item{margin-top:10px;}
+.new-link{padding-bottom:20px;}
+h1 {color: #0044cc !important;font-size: 48px !important;}
+.nav li a {color:  #0044cc;}
+.active{background-color: #ffffff;color: #0044cc;}
+.btn-primary {font-size: 18px !important;}
+
+.nav-pills .active a {background-color:#0044cc }
+.jqte {width: 700px;}
+textarea {height: 50px;}
+td {padding-right:30px!important;}
+
+
+.required{
+    color: #ff0000;
+    display: inline;
+}
+
+label{display: inline;}
+.job_edit {width: 300px;}
+textarea {width: 300px;}
+.jqte_tool_label{min-height: 21px !important;}
+.action_button{padding: 5px;}
