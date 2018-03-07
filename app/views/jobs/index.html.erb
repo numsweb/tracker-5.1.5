@@ -10,17 +10,12 @@
     </div>
 
     <!-- <p>Color Key</p> -->
-    <div class="row-fluid">
       <% status_selections = [] %>
       <% status_selections << ["All",  jobs_path] %>
       <% @statuses.each do |status| %>
-        <span style="<%=status.style.to_s%>;margin-right: 3px;" >
-          <% job_count = get_job_count(status) %>
-          <%#= link_to status.name + " (" + job_count.to_s + ")", jobs_filtered_path(filter: status.name), style: status.style.to_s %>
-        </span>
-          <% status_selections << ["#{status.name}  (#{job_count.to_s})",  jobs_filtered_path(filter: status.name) ] %>
+        <% job_count = get_job_count(status) %>
+        <% status_selections << ["#{status.name}  (#{job_count.to_s})",  jobs_filtered_path(filter: status.name) ] %>
       <% end %>
-    </div>
 
     <div class="row-fluid">
       <label>Filter by Status: </label>
@@ -48,8 +43,8 @@
 
             <tbody>
             <% @jobs.each do |job| %>
-                <tr >
-                  <td><%= link_to job.company, job,  {style: job.status.link_style} %></td>
+                <tr>
+                  <td><%= job.company %></td>
                   <td><%= job.recruiter[0..20] unless job.recruiter.blank? %></td>
                   <td class="last-contact"><%= job.last_contact.strftime("%m-%d-%Y") unless job.last_contact.blank? %></td>
                   <td><%= job.status.name %></td>
