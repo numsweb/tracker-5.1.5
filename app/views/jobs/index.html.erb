@@ -23,7 +23,8 @@
     </div>
 
     <div class="row-fluid">
-      <%= select "jobs_select", "id", status_selections %>
+      <label>Filter by Status: </label>
+      <%= select "jobs_select", "id", status_selections, { include_blank: false } %>
     </div>
 
     <br/>
@@ -47,7 +48,7 @@
 
             <tbody>
             <% @jobs.each do |job| %>
-                <tr  style="<%= job.status.style  %>"  >
+                <tr >
                   <td><%= link_to job.company, job,  {style: job.status.link_style} %></td>
                   <td><%= job.recruiter[0..20] unless job.recruiter.blank? %></td>
                   <td class="last-contact"><%= job.last_contact.strftime("%m-%d-%Y") unless job.last_contact.blank? %></td>
