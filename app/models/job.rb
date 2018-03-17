@@ -44,7 +44,11 @@ class Job < ApplicationRecord
       @jobs = Job.all.order("status_id ASC")
     end
     if params[:filter]
-      case params[:filter].gsub!("%20", " ")
+      filter = params[:filter]
+      if filter.include?("%20")
+        filter = filter.gsub("%20" ," ")
+      end
+      case filter
         when "New"
           @jobs = @jobs.status_new
         when "Waiting Feedback"
