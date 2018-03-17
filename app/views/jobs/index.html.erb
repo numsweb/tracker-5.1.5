@@ -17,15 +17,25 @@
         <% status_selections << ["#{status.name}  (#{job_count.to_s})",  jobs_filtered_path(filter: status.name) ] %>
       <% end %>
 
+    <% if params[:filter] %>
+        <% filter = params[:filter] %>
+        <%   if filter.include?("%20") %>
+            <%filter = filter.gsub("%20" ," ") %>
+        <% end %>
+    <% end %>
+
     <div class="row-fluid">
       <label>Filter by Status: </label>
-      <%= select "jobs_select", "id", status_selections, { include_blank: false } %>
+      <% if params[:filter] %>
+          <%= select "jobs_select", "id", status_selections, {:selected => [filter, jobs_filtered_path],  include_blank: false } %>
+      <% else %>
+          <%= select "jobs_select", "id", status_selections, {include_blank: false } %>
+      <% end %>
     </div>
 
     <br/>
     <% filter_link = params[:filter].blank? ? '' : '?filter=' + params[:filter]%>
-
-    <p> Showing results for:  <b><%= @selected_status %></b>  </p>
+    
     <% if @jobs.blank? %>
         <p>No Matching Jobs! </p>
     <% else %>
