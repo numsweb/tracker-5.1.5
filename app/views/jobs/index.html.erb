@@ -35,7 +35,8 @@
 
     <br/>
     <% filter_link = params[:filter].blank? ? '' : '?filter=' + params[:filter]%>
-    
+
+    <p> Showing results for:  <b><%= @selected_status %></b>  </p>
     <% if @jobs.blank? %>
         <p>No Matching Jobs! </p>
     <% else %>
@@ -56,7 +57,7 @@
                 <tr>
                   <td><%= job.company %></td>
                   <td><%= job.recruiter[0..20] unless job.recruiter.blank? %></td>
-                  <td class="last-contact"><%= job.last_contact.strftime("%m-%d-%Y") unless job.last_contact.blank? %></td>
+                  <td class="last-contact"><%= job.last_contact unless job.last_contact.blank? %></td>
                   <td><%= job.status.name %></td>
                   <td><%= link_to 'Show', job, class: "btn btn-primary btn-small" %></td>
                   <td><%= link_to 'Edit', edit_job_path(job), class: "btn btn-primary btn-small" %></td>

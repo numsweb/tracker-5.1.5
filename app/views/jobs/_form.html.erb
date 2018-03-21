@@ -52,7 +52,7 @@
         <td>
           <div class="field">
             <%= f.label :last_contact %><br/>
-            <input type="text" name="job[last_contact]", class="job_edit_field" value=<%= @job.last_contact.blank? ? Time.now.to_date.strftime("%m-%d-%Y") :  @job.last_contact.to_date.strftime("%m-%d-%Y")%> data-behaviour='datepicker' >
+            <input type="text" name="job[last_contact]", class="job_edit_field" value=<%= @job.last_contact.blank? ? Time.now.to_date :  @job.last_contact.to_date%> data-behaviour='datepicker' data-date-format='yyyy/mm/dd' >
           </div>
         </td>
       </tr>
@@ -114,7 +114,6 @@
         //set up the date picker here, since it wouldn't load reliable in coffee script files
         $(document).ready(function(){
             $('[data-behaviour~=datepicker]').datepicker({
-                format: 'mm-dd-yyyy',
                 autoclose: true
             });
             $(".comments").jqte();
