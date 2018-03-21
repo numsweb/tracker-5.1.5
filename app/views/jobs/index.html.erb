@@ -55,7 +55,7 @@
             <tbody>
             <% @jobs.each do |job| %>
                 <tr>
-                  <td><%= job.company %></td>
+                  <td><%= link_to job.company, job, {style: job.status.link_style}  %></td>
                   <td><%= job.recruiter[0..20] unless job.recruiter.blank? %></td>
                   <td class="last-contact"><%= job.last_contact unless job.last_contact.blank? %></td>
                   <td><%= job.status.name %></td>
