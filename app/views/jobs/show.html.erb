@@ -2,7 +2,7 @@
 
 <h1> Job </h1>
 
-<div class="jobs-table">
+<div class="col-md-12" style="margin-bottom: 20px;">
   <table>
     <thead>
     <tr>
@@ -12,6 +12,13 @@
       <th>Last Contact</th>
       <th>Phone</th>
       <th>Cell</th>
+      <th>Website</th>
+      <th>Address</th>
+      <th>Contact</th>
+      <th>Phone</th>
+      <th>Position</th>
+      <th>Status</th>
+      <th>Comments</th>
     </tr>
     </thead>
     <tr>
@@ -21,41 +28,18 @@
       <td><%= @job.last_contact.strftime("%m-%d-%Y") unless @job.last_contact.blank? %></td>
       <td><%= @job.recruiter_phone %></td>
       <td><%= @job.recruiter_cell %></td>
-
-
-    </tr>
-  </table>
-</div>
-<br/>
-<div class="jobs-table">
-  <table>
-    <thead>
-    <tr>
-      <th>Website</th>
-      <th>Address</th>
-      <th>Contact</th>
-      <th>Phone</th>
-      <th>Position</th>
-      <th>Status</th>
-    </tr>
-    </thead>
-    <tr>
       <td><%= @job.company_website %></td>
       <td><%= @job.company_address %></td>
       <td><%= @job.company_contact %></td>
       <td><%= @job.company_phone %></td>
       <td><%= @job.position %></td>
       <td> <%= Status.find(@job.status.id).name %></td>
-      <td></td>
+      <td><%= @job.comments.html_safe unless @job.comments.blank? %></td>
     </tr>
   </table>
 </div>
-<br/>
 
-<p>
-  <strong>Comments</strong><br/>
-  <%= @job.comments.html_safe unless @job.comments.blank? %>
-</p>
+
 
 
 <%= link_to 'Edit', edit_job_path(@job), class: "btn btn-primary btn-small" %> |
