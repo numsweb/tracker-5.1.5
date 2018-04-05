@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get 'jobs_filtered/:filter', to: 'jobs#index', as: :jobs_filtered
 
+  get 'jobs_react', to: 'jobs#index_react', as: :jobs_react
+
 
 
   devise_scope :user do
@@ -15,6 +17,12 @@ Rails.application.routes.draw do
     get "/logout", to: "devise/sessions#destroy"
     get "/login", to: "devise/sessions#new"
     post "/login", to: "devise/sessions#create"
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :jobs, only: [:index, :create, :destroy, :update]
+    end
   end
 
 end

@@ -26,6 +26,10 @@ class JobsController < ApplicationController
     end
   end
 
+  def index_react
+
+  end
+
   # GET /jobs/1
   # GET /jobs/1.json
   def show
