@@ -4,37 +4,45 @@
 
 <div class="col-md-12" style="margin-bottom: 20px;">
   <table>
-    <thead>
     <tr>
-      <th>Company</th>
-      <th>Recruiter</th>
-      <th>Email</th>
-      <th>Last Contact</th>
-      <th>Phone</th>
-      <th>Cell</th>
-      <th>Website</th>
-      <th>Address</th>
-      <th>Contact</th>
-      <th>Phone</th>
-      <th>Position</th>
-      <th>Status</th>
-      <th>Comments</th>
+      <th>Company</th> <td><%= @job.company %></td>
     </tr>
-    </thead>
     <tr>
-      <td><%= @job.company %></td>
-      <td><%= @job.recruiter %></td>
-      <td><%= @job.recruiter_email %></td>
-      <td><%= @job.last_contact.strftime("%m-%d-%Y") unless @job.last_contact.blank? %></td>
-      <td><%= @job.recruiter_phone %></td>
-      <td><%= @job.recruiter_cell %></td>
-      <td><%= @job.company_website %></td>
-      <td><%= @job.company_address %></td>
-      <td><%= @job.company_contact %></td>
-      <td><%= @job.company_phone %></td>
-      <td><%= @job.position %></td>
-      <td> <%= Status.find(@job.status.id).name %></td>
-      <td><%= @job.comments.html_safe unless @job.comments.blank? %></td>
+      <th>Recruiter</th><td><%= @job.recruiter %></td>
+    </tr>
+    <tr>
+      <th>Email</th> <td><%= @job.recruiter_email %></td>
+    </tr>
+    <tr>
+      <th>Last Contact</th> <td><%= @job.last_contact.strftime("%m-%d-%Y") unless @job.last_contact.blank? %></td>
+    </tr>
+    <tr>
+      <th>Phone</th><td><%= @job.recruiter_phone %></td>
+    </tr>
+    <tr>
+      <th>Cell</th><td><%= @job.recruiter_cell %></td>
+    </tr>
+    <tr>
+      <th>Website</th> <td><%= @job.company_website %></td>
+    </tr>
+    <tr>
+      <th>Address</th><td><%= @job.company_address %></td>
+    </tr>
+    <tr>
+      <th>Contact</th><td><%= @job.company_contact %></td>
+    </tr>
+    <tr>
+      <th>Phone</th> <td><%= @job.company_phone %></td>
+    </tr>
+    <tr>
+      <th>Position</th><td><%= @job.position %></td>
+    </tr>
+    <tr>
+      <th>Status</th><td> <%= Status.find(@job.status.id).name %></td>
+    </tr>
+    <tr>
+      <th>Comments</th> <td><%= @job.comments.html_safe unless @job.comments.blank? %></td>
+    </tr>
     </tr>
   </table>
 </div>
