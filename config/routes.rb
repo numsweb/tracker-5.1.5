@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'appointments/index'
+
   devise_for :users
   resources :statuses
   resources :jobs
@@ -8,7 +10,9 @@ Rails.application.routes.draw do
 
   get 'jobs_filtered/:filter', to: 'jobs#index', as: :jobs_filtered
 
+
   get 'jobs_react', to: 'jobs#index_react', as: :jobs_react
+  get 'appointments_react', to: 'appointments#index', as: :appointments_react
 
 
 
