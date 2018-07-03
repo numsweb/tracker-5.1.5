@@ -16,6 +16,12 @@ class Job < ApplicationRecord
   scope :status_not_accepted, ->  { where(:status_id => Status.find_by_name("Not Accepted").id) }
   scope :status_hired, ->  { where(:status_id => Status.find_by_name("Hired").id) }
   scope :status_resigned, ->  { where(:status_id => Status.find_by_name("Resigned").id) }
+  scope :status_code_sample_completed, -> { where(:status_id => Status.find_by_name("Code Sample Completed").id) }
+  scope :status_waiting_interview_feedback, -> { where(:status_id => Status.find_by_name("Waiting interview feedback").id) }
+  scope :status_pair_program_scheduled, -> { where(:status_id => Status.find_by_name("Pair-Program scheduled").id) }
+  scope :status_job_on_hold, -> { where(:status_id => Status.find_by_name("Job on Hold").id) }
+
+
 
 
   def self.search(params)
@@ -69,6 +75,14 @@ class Job < ApplicationRecord
           @jobs = @jobs.status_hired
         when "Resigned"
           @jobs = @jobs.status_resigned
+        when "Code Sample Completed"
+          @jobs = @jobs.status_code_sample_completed
+        when "Waiting interview feedback"
+          @jobs = @jobs.status_waiting_interview_feedback
+        when "Pair-Program scheduled"
+          @jobs = @jobs.status_pair_program_scheduled
+        when "Job on Hold"
+          @jobs = @jobs.status_job_on_hold
       end
 
     end
