@@ -47,7 +47,10 @@ gem 'rails_semantic_logger', '4.0.0.beta2'
 gem 'rails_12factor'
 gem 'devise'
 gem 'jqueryte'
-gem 'loofah', '2.2.1'
+gem 'loofah', '>= 2.2.2'
+gem 'rubyzip', '>= 1.2.1'
+gem 'ffi', '>= 1.9.24'
+gem 'rails-html-sanitizer', '>= 1.0.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
