@@ -21,6 +21,6 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* Whatever else 
+* Whatever else is necessary
 
 * ...
